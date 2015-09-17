@@ -1,0 +1,23 @@
+language: node_js
+env:
+  global:
+  - GH_USER: xxxnelsonxxx
+node_js:
+- '0.10.38'
+install:
+- npm install jshint mocha gulp bower -g
+- npm install
+- bower install
+- gulp build
+- mkdir out && cd $_
+- git init
+- git config user.name upd
+- git config user.email upd@te.web
+- git remote add origin $GH_REF
+- cp -r ../dist/* .
+- cp ../CNAME ./CNAME
+- git add .
+- git commit -m "Deployed to Github Pages"
+- git push -f --quiet origin master:gh-pages
+- cd ..
+script: npm run-script deploy

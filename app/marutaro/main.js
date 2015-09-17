@@ -1,3 +1,5 @@
+/* jshint devel:true, latedef : nofunc */
+'use strict';
 var option = {
   get: 'user',
   userId: 124317,
